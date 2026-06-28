@@ -1,0 +1,25 @@
+// Author: Muhaimin Ali
+// Brute Force solution
+
+class Solution {
+public:
+    int lengthOfLongestSubstring(string s) {
+        int longestSubstring = 0;
+
+        for(int i = 0; i < s.length(); i++){
+            unordered_map<char, int> letterMap;
+            for(int j = i; j < s.length(); j++){
+
+                if(letterMap[s[j]] == 1) break;
+                letterMap[s[j]] = 1;
+                longestSubstring = max(longestSubstring, j - i + 1);
+            }
+        }
+
+        return longestSubstring;
+    }
+};
+
+// Time Complexity O(n^2) where n is the length of the string
+
+
